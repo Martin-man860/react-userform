@@ -2,6 +2,40 @@
   text-align: center;
 }
 
-.box{
-  border-radius: 20px;
+body{ 
+  background-color:#a66632;
+  background-origin: content-box;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv1hYp8GWED4O2EoWIvRQ-Xhh_i1ZYjJWZwekkvFv7fJsniT87N3Pchz-LHJLz6Bsxub0&usqp=CAU);
+}
+
+input{
+  border-radius: 10px;
+  height: 5vh;
+  width:35%;
+}
+
+.h1{
+  color:black ;
+  font-size: 50px;
+  font-style:italic;
+  font-family: balloon;
+  font-weight: bolder   ;
+}
+
+.submit{
+  width: 10%;
+  color:black ;
+  background-color:#348feb ;
+  font-size: 1rem;
+  font-style: italic;
+  font-family: cursive;
+  font-weight:bold ;
+}
+
+.p{
+  color:black;
+  font-size: 150%;
+  font-family: bolder;
+  font-style: italic;
+  font-weight: bold;
 }

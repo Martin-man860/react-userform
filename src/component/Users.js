@@ -1,49 +1,78 @@
 import React, {useState} from "react"
+import { Button, Modal } from "react-bootstrap"
+import EditUserForm from "./EditUserForm"
 
 
 function User (props) {
-    const [name,setName] = useState("");
-    const [email,setEmail] = useState("");
-    const [gen,setGen] = useState("")
+   const user = props.user;
+   
+   const [showModal,setShowModal] = useState(false);
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        
-        let user = {
-            name: name,
-            email: email,
-       
-            gen: gen,
-        };
-
-        props.addUser(user);
-        setName("")
-        setEmail("")
-        setGen("")
-        
-    }
+  function toggleModal() {
+    setShowModal(!showModal)
+  }  
 
     return (
-      <form onSubmit ={(e)=>handleSubmit(e) }>
+      <div>
 
-         <div className="box">    
-
-           <input type="text" name="full name" value={name} onChange={(e) => setName(e.target.value)}/>
-            <br/>
-          <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-            <br/>
-          <input type="text" name="gen" value={gen} onChange={(e) => setGen(e.target.value)}/>
-
-        </div>
+      <h1>{user.name}</h1>
+      <h3>{user.email}</h3>
+      
+    
+      <Button variant="primary" onClick={() => toggleModal()}>
+        Edit
+      </Button>
+      <Button variant="danger" onClick={() => props.deleteUser(user.id)}>
+        Delete
+      </Button>
 
       
-       <div className="submit">
-       <input type="Submit"/>   
-        </div>
-
-    </form>
-    )
+      <Modal show={showModal} onHide={() => toggleModal()}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+    
+          <EditUserForm
+            user={user}
+            editUser={props.editUser}
+            toggleModal={toggleModal}
+          />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => toggleModal()}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
+    );
+  
 }
 
-
 export default User;
+
+
+
+
+
+
+
+// const [name,setName] = useState("");
+// const [email,setEmail] = useState("");
+// const [gen,setGen] = useState("")
+
+// function handleSubmit(e) {
+//     e.preventDefault();
+    
+//     let user = {
+//         name: name,
+//         email: email,
+//         gen: gen,
+//     };
+
+//     props.addUser(user);
+//     setName("")
+//     setEmail("")
+//     setGen("")
+

@@ -1,30 +1,24 @@
-import React,{Component} from "react";
-import App from "../App";
+import React, { useState} from "react"
+import User from "./Users"
+import { Modal,Button } from "react-bootstrap";
 
-class UserList extends Component {
-    render() {
-        
-    
-
-   const users = this.props.data;
-
-
+function UserList(props) {
     return (
-        
-            
-                users.map((user,index) => {
-                    return (
-                        <div key={index}>
-                            <h1>{user.name}</h1>
-                            <h2>{user.email}</h2>
-                            <h3>{user.gen}</h3>
-                        </div>
-                    );
-                })
-            
-        
-    )
+      <div>
+        {props.data.map((user) => {
+            return (
+            <User
+              user={user}
+              key={user.id}
+              deleteUser={props.deleteUser}
+              editUser={props.editUser}
+            />
+          );
+        })}
+      </div>
+    );
+  }
+  
+  export default UserList;
 
-        }
-}
-export default UserList;
+            

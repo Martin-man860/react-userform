@@ -2,6 +2,8 @@ import React,{useState} from 'react';
 import './App.css';
 import User from "./component/Users.js"
 import UserList from "./component/UserList"
+import UserForm from "./component/UserForm"
+
 
 
 function App() {
@@ -17,9 +19,10 @@ function addUser(user) {
 
   return (
     <div className="App">
-      <User addUser={addUser}/>
+      <UserForm addUser={addUser}/>
       <UserList data={users}/>
     </div>
   );
 }
 export default App;
+ 
