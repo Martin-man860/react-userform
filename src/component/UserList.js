@@ -1,6 +1,6 @@
 import React, { useState} from "react"
 import User from "./Users"
-import { Modal,Button } from "react-bootstrap";
+
 
 function UserList(props) {
     return (

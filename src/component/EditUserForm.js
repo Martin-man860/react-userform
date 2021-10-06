@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Form,Button } from "react-bootstrap";
 
 export default function EditUserForm(props) {
-    const [name,setName] = useState(props.user.name)
+    const [name,setName] = useState(props.user.nam.nsme)
     const [email,setEmail] = useState(props.user.email)
    
 
@@ -14,11 +14,14 @@ export default function EditUserForm(props) {
         setEmail(e.target.value);
     };
 
+    
+
 
     function handleSubmit() {
         let editedUser = {
             name: name,
             email: email,
+          
 
             id: props.user.id,
         };

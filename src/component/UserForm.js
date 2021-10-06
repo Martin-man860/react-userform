@@ -11,10 +11,11 @@ function UserForm(props) {
     function handleSubmit(e) {
         e.preventDefault();
 
-        if (email && name) {
+        if (email && name ) {
             let newUser = {
                 name: name,
                 email: email,
+                
                 id: uuid(),
             };
 
@@ -22,15 +23,19 @@ function UserForm(props) {
 
             setName("")
             setEmail("")
+            
         }
     }
 
     return (
         <form onSubmit={(e) => handleSubmit(e)}>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)}/>
-
-            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
-
+            <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
+        <br/>
+        <br/>
+            <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+        <br/>
+        <br/>
+       
             <input type="submit"/>
         </form>
     );
