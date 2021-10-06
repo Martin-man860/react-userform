@@ -17,6 +17,7 @@ function User (props) {
 
       <h1>{user.name}</h1>
       <h3>{user.email}</h3>
+    
       
     
       <Button variant="primary" onClick={() => toggleModal()}>
