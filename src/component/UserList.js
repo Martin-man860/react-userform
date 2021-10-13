@@ -1,11 +1,12 @@
-import React, { useState} from "react"
 import User from "./Users"
+import { connect } from "react-redux"
 
 
 function UserList(props) {
+  console.log(props);
     return (
       <div>
-        {props.data.map((user) => {
+        {props.users.map((user) => {
             return (
             <User
               user={user}
@@ -18,7 +19,12 @@ function UserList(props) {
       </div>
     );
   }
+  const mapStateToProps = (state) => {
+    return {
+      users: state.users,
+    }
+  }
   
-  export default UserList;
+  export default connect(mapStateToProps) (UserList);
 
             

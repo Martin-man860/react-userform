@@ -39,3 +39,8 @@ input{
   font-style: italic;
   font-weight: bold;
 }
+
+.submit{
+  color:beige;
+  background-color: red;
+}

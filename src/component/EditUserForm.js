@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Form,Button } from "react-bootstrap";
 
 export default function EditUserForm(props) {
-    const [name,setName] = useState(props.user.nam.nsme)
+    const [name,setName] = useState(props.user.name.name)
     const [email,setEmail] = useState(props.user.email)
    
 

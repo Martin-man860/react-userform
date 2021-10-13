@@ -7,19 +7,33 @@ import UserForm from "./component/UserForm"
 
 function App() {
 
-const [users,setUser] = useState([]);
+const [users,setUsers] = useState([]);
 
-function addUser(user) {
-  setUser([{...users},user]);
+function editUser(newDetails,userId) {
+  const editedUser = users.map((users)=> {
+    if (userId === users.id) {
+      return newDetails;
+    } else {
+      return users;
+    }
+  });
+
+  setUsers(editedUser)
 }
 
+function deleteUser(userId) {
+  const filteredUsers = users.filter((users)=> {
+    return userId !== users.id;
+  });
 
+  setUsers(filteredUsers)
+}
 
 
   return (
     <div className="App">
-      <UserForm addUser={addUser}/>
-      <UserList data={users}/>
+      <UserForm/>
+      <UserList deleteUser={deleteUser} editUser={editUser}/>
     </div>
   );
 }
