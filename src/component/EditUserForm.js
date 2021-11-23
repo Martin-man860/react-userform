@@ -1,7 +1,9 @@
 import React, { useState } from "react"
 import { Form,Button } from "react-bootstrap";
+import { connect } from "react-redux"
+import { editUser } from "../actions/UserActions"
 
-export default function EditUserForm(props) {
+function EditUserForm(props) {
     const [name,setName] = useState(props.user.name.name)
     const [email,setEmail] = useState(props.user.email)
    
@@ -21,8 +23,6 @@ export default function EditUserForm(props) {
         let editedUser = {
             name: name,
             email: email,
-          
-
             id: props.user.id,
         };
 
@@ -55,3 +55,9 @@ export default function EditUserForm(props) {
         </Form>
       );
 }
+
+const mapDispatchToProps = {
+  editUser
+}
+
+export default connect(null, mapDispatchToProps)(EditUserForm);

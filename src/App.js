@@ -1,41 +1,68 @@
-import React,{useState} from 'react';
-import './App.css';
-import UserList from "./component/UserList"
-import UserForm from "./component/UserForm"
+import React, { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+// import UserForm from "./component/UserForm";
+// import { Container, Row, Col } from "react-bootstrap";
+// import UserList from "./component/UserList";
+import { getAllUsers } from "./actions/userActions";
+import { connect } from "react-redux";
+import { BrowserRouter, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import Register from "./Pages/Register";
+import Login from "./Pages/Logins";
+// import ProtectedRoute from "./components/ProtectedRoute";
 
+function App(props) {
 
+// const [users,setUsers] = useState([]);
+// useEffect(()=> {
+//   props.getAllUsers();
+// },[]);
 
-function App() {
+// function addUser(user) {
+//   //makes a copy of the current users state
+//   //and add a new user.
+//   setUsers([...users, user]);
+// }
 
-const [users,setUsers] = useState([]);
+// function editUser(newDetails,userId) {
+//   const editedUser = users.map((users)=> {
+//     if (userId === users.id) {
+//       return newDetails;
+//     } else {
+//       return users;
+//     }
+//   });
 
-function editUser(newDetails,userId) {
-  const editedUser = users.map((users)=> {
-    if (userId === users.id) {
-      return newDetails;
-    } else {
-      return users;
-    }
-  });
+//   setUsers(editedUser)
+// }
 
-  setUsers(editedUser)
-}
+// function deleteUser(userId) {
+//   const filteredUsers = users.filter((users)=> {
+//     return userId !== users.id;
+//   });
 
-function deleteUser(userId) {
-  const filteredUsers = users.filter((users)=> {
-    return userId !== users.id;
-  });
-
-  setUsers(filteredUsers)
-}
+//   setUsers(filteredUsers)
+// }
 
 
   return (
-    <div className="App">
-      <UserForm/>
-      <UserList deleteUser={deleteUser} editUser={editUser}/>
-    </div>
+      <BrowserRouter>
+        <ProtectedRoute exact path="/" component={Home} />
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
+      </BrowserRouter>   
+    
+
+
+
+    // <div className="App">
+    //   <UserForm/>
+    //   <UserList deleteUser={deleteUser} editUser={editUser}/>
+    // </div>
   );
 }
-export default App;
- 
+const mapDispatchToProps = {
+	getAllUsers
+};
+
+export default connect(null, mapDispatchToProps)(App);

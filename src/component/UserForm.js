@@ -16,8 +16,7 @@ function UserForm(props) {
         if (email && name ) {
             let newUser = {
                 name: name,
-                email: email,
-                
+                email: email,  
                 id: uuid(),
             };
 
