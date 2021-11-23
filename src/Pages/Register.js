@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { registerWithEmail, signInWithGoogle } from "../actions/authActions";
+import { registerWithEmail, signInWithGoogle } from "../actions/AuthActions";
 
 const Register = (props) => {
 	if (!props.auth.isLoaded) return null;

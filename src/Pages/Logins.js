@@ -1,21 +1,21 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { signInWithEmail, signInWithGoogle } from "../actions/authActions";
+import { signInWithEmail, signInWithGoogle } from "../actions/AuthActions";
 
 const Login = (props) => {
 	if (!props.auth.isLoaded) return null;
 	if (!props.auth.isEmpty) props.history.push("/");
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		let email = e.target.elements.email.value;
 		let password = e.target.elements.password.value;
-		props.signInWithEmail(email, password);
+	    	props.signInWithEmail(email, password);
 	};
 	return (
-		<Container style={{ marginTop: "5 rem" }}>
+		
 			<form onSubmit={handleSubmit}>
 				<h1>login here</h1>
 				<div>
@@ -31,7 +31,7 @@ const Login = (props) => {
 				<Link to="/register">Don't have an account? Sign up</Link>
 				<button onClick={props.signInWithGoogle}>sign in with google</button>
 			</form>
-		</Container>
+		
 	);
 };
 const mapStateToProps = (state) => {

@@ -45,9 +45,11 @@ export const signInWithGoogle = () => {
 
 export const signOut = (email, password) => {
 	return (dispatch, state, { getFirebase }) => {
-		getFirebase()
+	let	firebase = getFirebase()
+	let provider = new firebase.auth.GoogleAuthProvider()
+	firebase
 			.auth()
-			.signOut()
+			.signOut(provider)
 			.then(() => {
 				console.log("Sign out successful");
 			})
@@ -56,3 +58,4 @@ export const signOut = (email, password) => {
 			});
 	};
 };
+

@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import UserForm from "./component/UserForm";
 // import { Container, Row, Col } from "react-bootstrap";
 // import UserList from "./component/UserList";
-import { getAllUsers } from "./actions/userActions";
+import { getAllUsers } from "./actions/UserActions";
 import { connect } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Register from "./Pages/Register";
-import Login from "./Pages/Logins";
-// import ProtectedRoute from "./components/ProtectedRoute";
+import Logins from "./Pages/Logins";
+
 
 function App(props) {
 
@@ -49,7 +49,7 @@ function App(props) {
       <BrowserRouter>
         <ProtectedRoute exact path="/" component={Home} />
         <Route path="/register" component={Register} />
-        <Route path="/login" component={Login} />
+        <Route path="/logins" component={Logins} />
       </BrowserRouter>   
     
 
